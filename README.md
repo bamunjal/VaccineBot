@@ -8,3 +8,7 @@ Feel free to update the code to get notification in any form you want.
 
 Note : The code was writtern in 2 hours, so excuse any shortcuts taken.
 Cheers !
+
+Update log : 
+Added Whatsapp notification to be sent whan a vaccine slot is available.
+Service used to send whatsapp notification is : https://www.callmebot.com/blog/free-api-whatsapp-messages/
