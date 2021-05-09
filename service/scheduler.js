@@ -4,6 +4,7 @@ const moment = require("moment");
 const scheduler = require("node-schedule");
 const vaccineService = require("./vaccineService");
 const constants = require("../config/constants");
+const notificationService = require("./notification");
 const fs = require('fs');
 
 const invokeScheduler = () => {
@@ -27,19 +28,26 @@ const checkVaccineSlot = async () => {
 
     var message = "";
     if (slots.length) {
-        message="Vaccine Slot(s) Available";
+        message = "Vaccine Slot(s) Available";
         console.log(message);
+        notificationService.sendWhatsappNotification(process.env.WHATSAPP_NUMBER, message);
     } else {
-        message="Vaccine Slot Not Available";
+        message = "Vaccine Slot Not Available";
         console.log(message);
     }
 
-    fs.writeFile("message.txt",message, function(err) {
-        if(err) {
+    // writing to file for python use
+    writeToFile("message.txt", message);
+
+}
+
+const writeToFile = async (fileName, message) => {
+    fs.writeFile(fileName, message, function (err) {
+        if (err) {
             return console.log(err);
         }
         console.log("The file was saved!");
-    }); 
+    });
 }
 
 module.exports = {
