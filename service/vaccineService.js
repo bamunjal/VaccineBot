@@ -27,9 +27,17 @@ const get18PlusVaccineSlots = async (districtId, date) => {
 
     if (allVaccineSlots.centers) {
         return await allVaccineSlots.centers.filter((vaccineSlot => {
-            var slot = vaccineSlot.sessions.find((session => session.min_age_limit <= constants.ageLimit && session.available_capacity > 0));
-            if (slot)
-                return slot;
+            if (constants.specificVaccine != "N/A") {
+                var slot = vaccineSlot.sessions.find((session => session.min_age_limit <= constants.ageLimit && session.available_capacity > 0 && session.vaccine == constants.specificVaccine));
+                if (slot) {
+                    return slot;
+                }
+            } else {
+                var slot = vaccineSlot.sessions.find((session => session.min_age_limit <= constants.ageLimit && session.available_capacity > 0));
+                if (slot) {
+                    return slot;
+                }
+            }
         }));
     } else {
         return [];
