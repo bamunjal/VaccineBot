@@ -6,6 +6,7 @@ A bot that will keep checking for availability of vaccine for a locality and pin
 Update districtId,age limit and vaccine type you want to be notified for in _constants.js_ and run the scheduler with your choice of interval to get updates on vaccine availability.
 
 Add your whatsapp number and "callmebot" api_key in .env, if you want to have whatsapp notifications.
+.env content : 
 WHATSAPP_API_KEY=
 WHATSAPP_NUMBER=
 
