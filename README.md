@@ -8,8 +8,10 @@ Update districtId,age limit and vaccine type you want to be notified for in _con
 Add your whatsapp number and "callmebot" api_key in .env, if you want to have whatsapp notifications.
 
 .env content : 
-WHATSAPP_API_KEY=
-WHATSAPP_NUMBER=
+
+WHATSAPP_API_KEY=XXX
+
+WHATSAPP_NUMBER=XXX
 
 *I'm adding the status to a file and reading it from a python code which updates my Raspberry Pi's LCD screen (Just for fun :))
 Feel free to update the code to get notification in any form you want.*
